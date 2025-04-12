@@ -1,0 +1,69 @@
+📁 What is mkdir?
+------------------
+
+mkdir stands for make directory — it’s the command you use to create folders (directories) in Linux.
+
+🧪 Basic Usage
+===============
+
+mkdir foldername
+
+🔹 This creates a folder named foldername in your current directory.
+
+
+🛠️ Commonly Used Options / Flags
+===================================
+
+Option		Full Option		What It Does
+-------------------------------------------------------------------------------------------------------------------------------
+
+-p		--parents	Creates parent directories if needed, and won’t throw error if folder already exists
+-v		--verbose	Shows a message every time a folder is created
+-m		--mode=MODE	Set permissions (like 755, 777) when creating the folder
+
+
+✅ -p — Create Parents
+========================
+
+Imagine you want to create this path:
+
+myfolder/inside/another/deepfolder
+
+If you just type:
+
+mkdir myfolder/inside/another/deepfolder
+
+You'll get an error if myfolder or any part of the path doesn't exist.
+
+But with -p:
+
+mkdir -p myfolder/inside/another/deepfolder
+
+🔹 It creates everything in the path if it’s not there!
+
+
+✅ -m — Set Permissions
+========================
+
+Permissions like 777 (full access) or 755 (owner access) when making folders.
+
+mkdir -m 755 securefolder
+
+This creates securefolder with permission rwxr-xr-x.
+
+
+
+
+
+example instance :
+
+lets say there is a path called 
+test/folder1/folder2/folder3
+
+if we were to write this command:
+
+	" rm -rf test/*/ "
+	
+test folder eka arunama anik okkoma delete wela ynwa
+
+

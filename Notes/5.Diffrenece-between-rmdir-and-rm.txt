@@ -1,0 +1,58 @@
+🗂️ rmdir vs rm — What’s the Difference?
+---------------------------------------
+
+🧹 rmdir – Remove Directory
+============================
+
+Only removes empty folders.
+
+Think of it like trying to delete an empty drawer.
+
+If the folder has files or other folders, it says: "Nope, not gonna do it!"
+
+📦 Example:
+
+	"rmdir myfolder"
+	
+
+→ Removes myfolder only if it's empty.
+
+💣 rm – Remove Files or Folders
+=================================
+
+Removes files, folders, anything.
+
+It's powerful and a bit dangerous if you’re not careful.
+
+Can remove non-empty folders with the right options.
+
+Example: 
+
+	"rm myfile.txt"
+
+→ Deletes a file.
+
+	"rm -r myfolder"
+	
+→ Deletes a folder and everything inside.
+
+
+
+🔍 Options / Flags Breakdown
+--------------------------------
+
+Command			Flag					What It Does
+---------------------------------------------------------------------------------------------------------------------
+
+rmdir		--ignore-fail-on-non-empty		Silently ignore folders that aren’t empty
+		-p					Remove parent folders too if they become empty
+							(e.g. rmdir -p a/b/c) deletes c, b, and a if all are empty
+							
+
+Command				Flag				What It Does
+---------------------------------------------------------------------------------------------------------
+rm				-f			Force delete (no "Are you sure?" prompt)
+				-r or -R		Recursive delete (for folders and contents)
+				-i			Ask before every delete (interactive mode)
+				-v			Verbose – shows what it’s deleting
+
