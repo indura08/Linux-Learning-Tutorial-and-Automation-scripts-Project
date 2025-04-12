@@ -1,0 +1,101 @@
+sed (Stream Editor) is a command in Bash used to find, replace, delete, and manipulate text in files or strings. It’s especially handy for quick text edits directly from the command line without opening a text editor.
+
+Basic syntax
+
+sed 'command' filename
+
+
+1. Basic Find and Replace
+--------------------------
+
+Example: Replacing a Word
+
+echo "Hello World" | sed 's/World/Bash/'
+
+output: Hello Bash
+
+	s/old/new/: s stands for "substitute," followed by old (text to replace) and new (replacement text).
+	
+	This replaces the first occurrence of "World" with "Bash" in each line.
+
+example : echo "Hello World World" | sed 's/World/Bash/g'
+
+output: Hello Bash Bash 
+
+
+2. Modifying a File (In-Place Editing)
+---------------------------------------
+
+With -i, you can make edits directly to a file.
+
+sed -i 's/old_text/new_text/g' filename.txt
+
+	-i modifies the file directly.
+	
+	This replaces old_text with new_text everywhere in filename.txt.
+
+
+3. Deleting Lines
+==================
+
+You can use sed to delete specific lines.
+
+Example: Deleting a Specific Line by Number
+
+sed '2d' filename.txt
+
+	2d: Deletes line 2 in filename.txt.
+
+Example: Deleting Lines Matching a Pattern
+
+sed '/pattern/d' filename.txt
+
+/pattern/d: Deletes lines containing "pattern".
+
+4. Selecting and Printing Specific Lines
+------------------------------------------
+
+You can use sed to print specific lines without modifying the file.
+
+sed -n '2p' filename.txt
+
+-n: Suppresses automatic printing.
+2p: Prints only line 2.
+
+5. Inserting or Appending Text
+-----------------------------------
+
+To insert text before a line, use i.
+To append text after a line, use a.
+
+
+sed '2i\Inserted Text' filename.txt
+
+2i\text: Inserts "Inserted Text" before line 2.
+
+
+example: sed '2a\Appended Text' filename.txt
+
+
+2a\text: Appends "Appended Text" after line 2.
+
+
+
+-----------------------------------------------------
+Mn video eke krpu example ekt adla command sha steps:
+-----------------------------------------------------
+
+mulinm sedTest.txt kiyla file ekk hdla eke liwwa text eka, eka blnna file eke athi
+
+eta passe kale menna me command ek gha e output eka ewidiyt weanas krgttu ek:
+
+command :sed 's/fly/grasshopper/g' sedTest.txt
+
+The output:
+
+The grasshopper flies like no grasshopper flies
+A grasshopper is an insect that has wings and a grasshopper likes to eat leftovers
+
+
+in the code g means that we want to do this sed globally which means i want to perform this task to whole text file
+ 

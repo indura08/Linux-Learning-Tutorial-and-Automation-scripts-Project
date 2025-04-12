@@ -1,0 +1,71 @@
+Synatx for case statements :
+
+case variable in
+    pattern1)
+        # Code to execute if variable matches pattern1
+        ;;
+    pattern2)
+        # Code to execute if variable matches pattern2
+        ;;
+    *)
+        # Code to execute if no pattern matches (default case)
+        ;;
+esac
+
+
+variable: The variable being checked.
+
+pattern1, pattern2, etc.: The patterns to match. Each pattern is followed by a ).
+
+;;: Ends each code block for a particular pattern.
+
+*: A wildcard pattern that matches anything, usually used as the default case.
+
+esac: Ends the case statement (it’s "case" spelled backward).
+
+
+Example 1 = of case Statement
+
+#!/bin/bash
+
+day="Tuesday"
+
+case $day in
+    "Monday")
+        echo "Start of the work week!"
+        ;;
+    "Wednesday")
+        echo "Midweek day!"
+        ;;
+    "Friday")
+        echo "Almost the weekend!"
+        ;;
+    "Saturday" | "Sunday")
+        echo "It’s the weekend!"
+        ;;
+    *)
+        echo "It’s a regular weekday."
+        ;;
+esac
+
+Example 2 = Case with Numeric Ranges
+
+#!/bin/bash
+
+num=2
+
+case $num in
+    1)
+        echo "You chose option 1"
+        ;;
+    2)
+        echo "You chose option 2"
+        ;;
+    3)
+        echo "You chose option 3"
+        ;;
+    *)
+        echo "Invalid option"
+        ;;
+esac
+

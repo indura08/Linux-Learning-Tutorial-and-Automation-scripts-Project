@@ -1,0 +1,41 @@
+The cat command in Linux (and Unix-like systems, including WSL) is one of the most frequently used commands. It's short for "concatenate" and is primarily used to read, display, and concatenate files. Here's a breakdown of what cat can do:
+
+Basic sytax :
+
+cat [options] [file...]
+
+1. Reading and Displaying the Contents of a File
+
+	cat filename.txt
+
+2. Displaying Multiple Files
+
+	cat file1.txt file2.txt
+
+3. Creating a New File
+
+	cat > newfile.txt
+
+4. Appending to a File
+
+	cat >> existingfile.txt
+
+5. Using with Pipes (|)
+
+	cat file.txt | grep "search_term"
+
+6. Numbering Lines in a File - If you want to see line numbers in a file when displaying its content, use the -n option:
+
+	cat -n file.txt
+
+7. Suppressing Blank Lines
+
+	cat -s file.txt
+
+8. Copying Contents from One File to Another
+
+	cat file1.txt > file2.txt
+
+	If you want to append instead of overwrite:
+
+	cat file1.txt >> file2.txt

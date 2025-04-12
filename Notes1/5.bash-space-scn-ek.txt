@@ -1,0 +1,6 @@
+Why No Spaces?
+
+Bash interprets spaces as delimiters between commands and arguments.
+If you put a space before or after the = sign, bash thinks you're trying to run a command (FIRST_NAME) with the arguments (= and indura), and it doesn’t know what to do with them.
+
+The correct way to assign a value to a variable in bash is: " FIRST_NAME=indura "

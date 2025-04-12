@@ -1,0 +1,81 @@
+In Linux and UNIX, file permissions control who can read, write, or execute a file or directory. Permissions help secure the system by restricting access, ensuring that only certain users or groups can perform certain actions on files.
+
+Basic File Permissions
+-----------------------
+
+Each file and directory in Linux/UNIX has three types of permissions for three types of users:
+
+1. User (Owner): The person who created the file or directory.
+2. Group: A set of users that may also have access to the file.
+3. Others (World): Anyone else with access to the system.
+
+For each of these, three main permissions apply:
+-----------------------------------------------
+
+Read (r): Allows reading or viewing the file’s contents.
+Write (w): Allows modifying the file.
+Execute (x): Allows running the file as a program or script.
+
+
+example:
+
+for this kind of output for ls -l command
+
+-rwxr-xr--
+
+This string is broken down as follows:
+
+First character (-): Indicates the file type (e.g., - for a regular file, d for directory).
+
+	Next three characters (rwx): Permissions for the owner (user).
+	Next three characters (r-x): Permissions for the group.	
+	Last three characters (r--): Permissions for others.
+
+In above example:
+
+The owner can read, write, and execute.
+The group can read and execute but not write.
+Others can only read.
+
+
+
+Changing Permissions
+---------------------
+The chmod command is used to change file permissions. You can set permissions using either symbolic (letters) or numeric (octal) representations.
+
+1. Symbolic Mode
+================
+
+Use letters to specify which permission to add (+), remove (-), or set (=).
+
+	chmod u+x filename   # Adds execute permission for the user
+	
+	chmod g-w filename   # Removes write permission for the group
+	
+	chmod o=r filename   # Sets read-only permission for others
+
+
+
+2. Numeric (Octal) Mode
+=======================
+
+Each permission has a numeric value:
+
+Read = 4
+Write = 2
+Execute = 1
+
+Permissions are represented as a three-digit number:
+
+First digit: User permissions
+Second digit: Group permissions
+Third digit: Others’ permissions
+
+example commands :
+
+1. chmod 755 myscript.sh   # Sets permissions to rwxr-xr-x (user can do everything; group and others can read and execute)
+
+2. chmod u+r,g+w,o= filename   # Adds read for user, write for group, and sets read-only for others
+
+
+in here 7 means that 4+2+1 , so user can do read right execute

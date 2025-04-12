@@ -1,0 +1,59 @@
+gcc stands for GNU Compiler Collection and is a compiler primarily used for C and C++ programs. In the context of Bash or any Unix-like shell, gcc is not a Bash command itself, but a program that you can run from the Bash shell to compile code.
+
+mulinma gcc ijstall krn inna one :
+
+	" sudo apt install gcc "
+
+Key Functions of gcc
+---------------------
+
+1. Compile C/C++ Programs: The main job of gcc is to compile C (and optionally C++) code, turning it into an executable program.
+
+2. Syntax and Basic Usage:
+
+	To compile a C program named program.c, you use:
+
+		gcc program.c -o program
+
+		program.c is the C source file you want to compile.
+		-o program specifies the output filename (in this case, program).
+
+
+3. Compiling and Linking:
+
+When you run gcc, it processes the code in phases:
+
+	Preprocessing: Handles macros and includes (#include statements).
+	Compiling: Turns code into an intermediate assembly language.
+	Assembling: Converts assembly to machine code.
+	Linking: Combines machine code with necessary libraries to create the final executable.
+
+4. Common Options:
+
+-o: Specify the output filename.
+-Wall: Enables all common compiler warnings, helpful for catching errors.
+-g: Generates debugging information.
+-O: Enables optimization (e.g., -O2 for standard optimization).
+
+Example: Compiling a Simple C Program
+
+Let's say you have a file named hello.c with this code:
+
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+
+To compile it with gcc, run:
+
+	gcc hello.c -o hello
+
+
+Now, you have an executable file named hello that you can run by typing:
+
+./hello
+
+
+

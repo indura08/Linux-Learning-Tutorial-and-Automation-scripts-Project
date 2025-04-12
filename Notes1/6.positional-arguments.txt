@@ -1,0 +1,75 @@
+Positional arguments in bash are the arguments (inputs) you pass to a bash script or command when you run it. These arguments are automatically assigned to special variables like $1, $2, $3, and so on, where each number corresponds to the position of the argument.
+
+How Positional Arguments Work:
+===============================
+
+Let’s say you have a bash script called my_script.sh. If you run it with some arguments like this:
+
+./my_script.sh first second third
+
+
+	first is the first positional argument.
+
+	second is the second positional argument.
+
+	third is the third positional argument.
+
+How to Access Positional Arguments in the Script:
+==================================================
+
+Inside your bash script (my_script.sh), you can use the following variables to access these arguments:
+
+	$1: Refers to the first argument (first).
+
+	$2: Refers to the second argument (second).
+
+	$3: Refers to the third argument (third).
+
+For example, your script might look like this:
+
+#!/bin/bash
+
+echo "First argument: $1"
+echo "Second argument: $2"
+echo "Third argument: $3"
+
+Example:
+
+If you run:
+
+./my_script.sh apple banana cherry
+
+The output will be:
+
+First argument: apple
+Second argument: banana
+Third argument: cherry
+
+
+Special Positional Variables:
+=============================
+
+$0: Refers to the name of the script itself.
+$#: Tells you how many arguments were passed to the script.
+$@: Expands to all the positional arguments as a list.
+$*: Similar to $@, but treats all arguments as a single word.
+
+Example Using Special Variables:
+
+#!/bin/bash
+
+echo "Script name: $0"
+echo "Number of arguments: $#"
+echo "All arguments: $@"
+
+Running it like this:
+
+./my_script.sh alpha beta
+
+Would output:
+
+Script name: ./my_script.sh
+Number of arguments: 2
+All arguments: alpha beta
+
+

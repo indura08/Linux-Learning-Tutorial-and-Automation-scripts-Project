@@ -1,0 +1,135 @@
+Q: lets say i wanrt to automate git hub commitng process like add . git commit git push origin branchName , so is it possible to wirte a bash script to do that process?
+
+A: 
+
+✅ Goal: Automate the following steps
+
+git add .
+git commit -m "Your commit message"
+git push origin your-branch-name
+
+🛠️ Step-by-Step Bash Script
+----------------------------
+
+Let’s create a script that:
+
+	1. Accepts a commit message from the user
+
+	2. Detects the current branch
+
+	3. Runs add, commit, and push
+
+🔥 Script: git-auto.sh
+
+	#!/bin/bash
+
+	# Check if a commit message was provided
+	if [ -z "$1" ]; then
+	  echo "🚨 Error: No commit message provided."
+	  echo "Usage: ./git-auto.sh \"Your commit message here\""
+	  exit 1
+	fi
+
+	# Get current branch name
+	branch=$(git branch --show-current)
+
+	# Add all changes
+	git add .
+
+	# Commit with message
+	git commit -m "$1"
+
+	# Push to current branch
+	git push origin "$branch"
+
+	echo "✅ Changes pushed to branch '$branch'!"
+
+💾 How to Use It
+-----------------
+
+1. Save the script:
+
+	Name it git-auto.sh and put it in your repo directory.
+
+2. Make it executable:
+
+	chmod +x git-auto.sh
+
+3. Run it like this:
+
+	./git-auto.sh "fix: updated login validation"
+
+🧠 Bonus: Add it to your global path
+--------------------------------------
+
+So you can run it from any repo:
+
+	sudo mv git-auto.sh /usr/local/bin/git-auto
+
+Then run it like this from anywhere:
+
+	git-auto "my commit message"
+
+
+Q: okay now i have this confusion, lets say we are about to write this same github workflow automation with java , in that the case when i write git add . and other git commands , it will throw an error because it will not understand the command, how those language doesn't understand those kind of commands and how come bash understand those kind of commands ?, bash will definitely understand git add . how? i'm super confused?
+
+A: 
+
+Oh this is a super good question — like, “I’m thinking like a real engineer” kind of good 🤯🔥! Let’s break it down in a simple and clear way:
+
+🎭 Part 1: Why git add . works in Bash
+-----------------------------------------
+
+Bash is a shell — it literally exists to run commands like:
+
+1. ls
+
+2. cd
+
+3. git add .
+
+4. python myscript.py
+
+So when you write:
+	
+		git add .
+
+Bash goes:
+
+“Ah, git is a program installed on the system. I'll pass add . as arguments to that program.”
+
+It runs the installed git executable (usually in /usr/bin/git), and gives it the command you typed.
+
+
+☕ Part 2: Why Java (or Python, C#, etc.) doesn’t understand git add .
+-------------------------------------------------------------------------
+
+Programming languages like Java, Python, and C# are not shells. They don’t understand terminal commands like:
+
+	git add .
+
+Because that’s not valid Java syntax. Java doesn't know what “git” is unless you tell it, like this:
+
+✅ In Java, you’d do something like:
+
+	ProcessBuilder builder = new ProcessBuilder("git", "add", ".");
+	builder.inheritIO(); // to see output in console
+	Process process = builder.start();
+	process.waitFor();
+
+So here you are saying:
+
+“Hey Java, please run this system-level command for me.”
+
+Java is good at running Java code, not shell commands. You have to manually call system commands like above.
+
+🚀 Real-World Analogy
+----------------------
+
+Bash is like a receptionist that knows which room every person (program) is in and can route your message.
+
+Java is like a specialist who only does Java stuff, but you can ask them: “Hey, can you go knock on the door of git for me?”
+
+
+
+

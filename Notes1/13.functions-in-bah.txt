@@ -1,0 +1,97 @@
+In Bash, functions are used to group commands together, making your scripts more organized and reusable. Functions in Bash are defined and called in a way similar to other programming languages, but with a few unique features.
+
+1. Basic Function Syntax
+-------------------------
+
+Here’s the syntax for defining and calling a function in Bash:
+
+function_name() {
+    # commands
+}
+
+Or you can define it with the function keyword (both are equivalent in Bash):
+
+function function_name {
+    # commands
+}
+
+
+example1 :
+==========
+
+greet() {
+    echo "Hello, $1!"
+}
+
+calling the function : greet "Alice"
+
+2. Passing Arguments to Functions
+------------------------------------
+
+In Bash, function arguments are accessed using $1, $2, etc., for the first, second, and subsequent arguments. $@ or $* can be used to get all arguments.
+
+example:
+==========
+
+add() {
+    echo "Sum is $(($1 + $2))"
+}
+
+add 5 10
+
+3. Returning Values from Functions
+===================================
+
+Bash functions don’t return values like in other languages. Instead, you can:
+
+Use echo to output a value (so it can be captured by the calling code).
+Use return to send an exit status code (0 for success, other numbers for errors).
+
+example:
+========
+ 
+multiply() {
+    local result=$(($1 * $2))
+    echo $result
+}
+
+result=$(multiply 3 4)
+echo "Result: $result"
+
+4. 4. Using Local Variables
+----------------------------
+
+In Bash, all variables are global by default. You can use local to restrict a variable’s scope to the function:
+
+calculate_area() {
+    local length=$1
+    local width=$2
+    echo $(($length * $width))
+}
+
+calculate_area 5 3
+
+5. Example: Combining Functions in a Script
+-----------------------------------------------
+
+Here’s a more complex example combining the elements above.
+
+# Define a function to print a greeting
+greet() {
+    echo "Hello, $1!"
+}
+
+# Define a function to add two numbers
+add() {
+    local sum=$(($1 + $2))
+    echo "The sum of $1 and $2 is $sum."
+}
+
+
+
+# Call the functions
+greet "Indura"
+add 7 12
+
+Hello, Indura!
+The sum of 7 and 12 is 19.

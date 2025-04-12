@@ -1,0 +1,29 @@
+1. first i create a file with vim
+
+	" vim shelltest.sh "
+
+2.dan "bash shelltest.sh" kiyla ghuwama shell script eka un wenwa namuth shell script ekt shebang ek deela thibba nm ./shelltest.sh kiyla ghnna puluwan
+
+3. so eeekt shebang eka dunna shell script eke #!/bin/bash/ kiyla , and specially apita adla shell eke interpreter ek hiygnna guwa command eka 
+
+	" ech $SHELL " kiyla
+
+4. eta passe enwa bin/bash kiyla interpreter path ek 
+
+5. eta passe awa prshne thami permission ekat permission hagnna dunna command eka":
+
+	" chmod u+x shelltest.sh "
+
+me uda command eke theruma:
+
+	chmod:
+		chmod stands for "change mode."
+
+		It’s a command used to change the permissions of files and directories.
+
+	u+x:
+		This part of the command specifies which permissions you're modifying and for whom:
+
+		u: Refers to the "user" (the owner of the file).
+		+: Means "add" permission (as opposed to - which would remove permission).
+		x: Stands for "execute" permission.

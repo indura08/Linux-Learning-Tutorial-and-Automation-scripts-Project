@@ -1,0 +1,92 @@
+In Unix-like operating systems (like Linux), fork is a system call (not a Bash command) that creates a new process. When you run a program, the operating system creates a process for it, and using fork, that process can create a child process, which is an exact copy of the parent process. This child process can then run independently.
+
+Here's how fork works in the context of Bash scripts:
+
+1. Creates a New Process: The fork system call duplicates the parent process to create a new, separate process. This child process can then execute commands independently of the parent.
+
+2. Common in Shell Scripts: When you run a command in a Bash script, it typically forks a new process to execute that command. For example, if you run ls, Bash forks a new process to handle the ls command separately.
+
+3. Parallel Execution: Forking is helpful for parallel processing. You can start a process with fork, allowing both parent and child processes to run at the same time.
+
+How Forking Works in Bash
+---------------------------
+
+In Bash, you don’t directly call fork, but you can create a new process in a few ways:
+
+1.Subshells (()): Commands inside () run in a new subshell (or a forked child process).
+
+	(echo "This is running in a forked subshell")
+
+2.Background Processes (&): Adding & after a command runs it in the background, effectively forking it.
+
+	sleep 10 &
+	echo "The sleep command is running in the background"
+
+
+3. & in Loops: If you want to fork multiple processes within a loop, you can do it like this:
+
+for i in {1..5}; do
+    echo "Starting process $i" &
+done
+wait  # Wait for all background processes to finish
+
+
+
+
+code explanantion:
+-------------------
+
+for this code :
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() {
+    int value = fork();
+    printf("fork return value is %d\n", value);
+
+    int ppid = getppid();
+    printf("ppid is %d\n", ppid);
+}
+
+
+1. fork():
+==========
+
+This function is used to create a new process by duplicating the current process (the one that called fork()).
+
+It returns:
+
+	A positive integer (the PID of the child process) to the parent process.
+	0 to the child process.
+	A negative value if the fork() fails.
+
+2. getppid():
+==============
+
+This function retrieves the parent process ID (PPID) of the current process.
+
+
+What Happens When the Code Runs
+--------------------------------
+
+1.Calling fork():
+
+When fork() is called, the operating system creates a new child process. At this point, there are now two processes running:
+
+	Parent Process: This is the original process that called fork().
+	Child Process: This is the new process created by fork().
+
+2. Return Value of fork():
+
+The return value of fork() is stored in the value variable.
+
+For the parent process, value will be a positive integer (the PID of the child). Let's say in your case it's 1658.
+
+For the child process, value will be 0.
+
+1658 is the PID of the child process. When the parent process calls fork(), it receives the PID of the newly created child process as the return value. So when you see fork return value is 1658, it means that the parent process has successfully created a child process with that PID.
+
+796 is the PPID (Parent Process ID) of the parent process itself. This means that the parent process (which has PID 1658) was started by another process with PID 796.
+

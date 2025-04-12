@@ -1,0 +1,78 @@
+awk is a powerful text-processing command in Bash that's especially useful for analyzing and transforming data in files or strings. It reads input line by line, splits each line into fields (based on spaces or another delimiter), and allows you to perform various actions on those fields.
+
+basic syntax 
+
+awk 'pattern { action }' filename
+
+	pattern: A condition or regular expression to match lines.
+	action: What to do with matching lines (like print, calculate, etc.).
+
+1. Simple Examples
+-------------------
+
+Printing Specific Columns
+=========================
+
+Each line is split into fields, represented by $1, $2, etc.
+
+echo "Alice 25 Developer" | awk '{print $1}'
+
+output: Alice
+
+Printing Multiple Columns
+=========================
+
+echo "Alice 25 Developer" | awk '{print $1, $3}'
+
+Output: Alice developer
+
+
+2. Specifying a Delimiter
+-------------------------
+
+By default, awk splits by spaces, but you can specify a different delimiter using -F.
+
+echo "Alice,25,Developer" | awk -F, '{print $1}'
+
+output: Alice
+
+
+
+3. Using Conditions (Patterns)
+--------------------------------
+
+You can set conditions so awk only acts on lines that match specific patterns.
+
+Example: Print Lines with a Certain Word
+
+echo -e "Alice\nBob\nCharlie" | awk '/Bob/ {print $0}'
+
+output Bob
+
+
+4. Calculations with awk
+-------------------------
+
+awk can perform calculations on fields, which is helpful for numeric data.
+
+echo "5 10" | awk '{print $1 + $2}'
+
+output 15
+
+
+5. Full Example with a File
+-------------------------------
+
+Suppose you have a file data.txt:
+
+Alice 25
+Bob 30
+Charlie 22
+
+
+awk '$2 > 23 {print $1}' data.txt
+
+output
+
+Alice
+Bob

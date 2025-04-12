@@ -1,0 +1,75 @@
+1. ^ – Start of the string
+
+Ensures the pattern starts matching at the beginning of the string.
+Example: ^A matches any string that starts with an "A".
+
+
+2. $ – End of the string
+
+Ensures the pattern matches until the end of the string.
+Example: end$ matches any string that ends with "end".
+
+3. [0-9] – Digit
+
+Matches any single digit from 0 to 9.
+Example: [0-9] matches any one digit, while [0-9]+ matches one or more digits.
+
+4.[a-z] – Lowercase letters
+
+Matches any single lowercase letter from "a" to "z".
+Example: [a-z]+ matches any sequence of one or more lowercase letters.
+
+5.[A-Z] – Uppercase letters
+
+Matches any single uppercase letter from "A" to "Z".
+Example: [A-Z]+ matches any sequence of one or more uppercase letters.
+
+6.[a-zA-Z] – Any letter (uppercase or lowercase)
+
+Matches any single letter, either lowercase or uppercase.
+Example: [a-zA-Z]+ matches any sequence of one or more letters.
+
+7. . (dot) – Any single character
+
+Matches any single character (letter, digit, symbol, or whitespace).
+Example: a.b matches "a_b" where _ is any character.
+
+8.+ – One or more occurrences
+
+Requires at least one of the preceding character or pattern.
+Example: [0-9]+ matches "123" but not "" (since + means "at least one").
+
+9.* – Zero or more occurrences
+
+Allows for zero or more occurrences of the preceding character or pattern.
+Example: [0-9]* matches "123" or an empty string "".
+
+10.? – Zero or one occurrence
+
+Makes the preceding character or pattern optional.
+Example: colou?r matches both "color" and "colour".
+
+11.| – OR (alternation)
+
+Allows for matching either pattern on the left or right.
+Example: cat|dog matches either "cat" or "dog".
+
+12.[^...] – Negation
+
+Matches any character except those in the brackets.
+Example: [^0-9] matches any character that is not a digit.
+
+13.\d – Digit (alternative to [0-9])
+
+Matches any single digit.
+Example: \d+ matches "123".
+
+14.\w – Word character (letters, digits, and underscores)
+
+Matches any single letter, digit, or underscore.
+Example: \w+ matches "hello_world123".
+
+15.\s – Whitespace
+
+Matches any whitespace character (spaces, tabs, line breaks).
+Example: \s+ matches a sequence of spaces or tabs.

@@ -1,0 +1,65 @@
+Basic Syntax
+-------------
+
+if [ condition ]; then
+    # Code to run if the condition is true
+elif [ another_condition ]; then
+    # Code to run if the second condition is true
+else
+    # Code to run if none of the conditions are true
+fi
+
+
+Here’s what each part does:
+
+if [ condition ]; then: Checks if the first condition is true; if it is, the code in this block will execute.
+
+elif [ another_condition ]; then: If the first condition is false, this checks another condition.
+
+else: If none of the conditions are true, the code in the else block will run.
+
+fi: Closes the if statement (like end in some other languages).
+
+
+example 2:
+
+#!/bin/bash
+
+number=15
+
+if [ $number -lt 10 ]; then
+    echo "The number is less than 10."
+elif [ $number -eq 10 ]; then
+    echo "The number is exactly 10."
+else
+    echo "The number is greater than 10."
+fi
+
+
+example 3: Using if, elif, and else with (( )) for Arithmetic
+
+number=5
+
+if (( number < 3 )); then
+    echo "Number is less than 3"
+elif (( number == 3 )); then
+    echo "Number is exactly 3"
+else
+    echo "Number is greater than 3"
+fi
+
+
+example 4: Nested if Statements
+
+number=15
+if [ $number -gt 10 ]; then
+    echo "Number is greater than 10"
+    if (( number % 2 == 0 )); then
+        echo "It's an even number."
+    else
+        echo "It's an odd number."
+    fi
+else
+    echo "Number is 10 or less."
+fi
+

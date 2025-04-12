@@ -1,0 +1,16 @@
+🏠 What does ~ mean?
+
+The ~ is a shortcut for your home directory. So if your username is sasha, then:
+
+~ = /home/sasha
+
+So this command:
+
+mkdir ~/Desktop/foo
+
+...means: " mkdir /home/sasha/Desktop/foo "
+
+It always works, no matter which folder you're currently in.
+
+
+

@@ -1,0 +1,10 @@
+mulinma text ekk edit krgnna nm 
+
+vim textfilename.txt ghla enter obnwa
+
+eta passe ena cli eke i ghuwama isert krnna puluwan texts
+
+
+eta passe escape button ek ebuwa insert modeekn escape wena eta passe :w tytpe krma write wena :q ebuwamam exit wena , write krla exit enna one nm :wq obnwa
+
+:q! ebuwam textfile ekt krpu changes okkoma ain wenwa 

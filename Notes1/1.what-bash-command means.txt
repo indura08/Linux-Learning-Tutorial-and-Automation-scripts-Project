@@ -1,0 +1,177 @@
+What is Bash?
+-------------
+
+Bash (Bourne Again SHell) is a command-line interface (CLI) and scripting language for Unix-like operating systems, such as Linux and macOS. It’s like a more advanced terminal where you can give your computer instructions.
+
+Key Features of Bash:
+---------------------
+
+1. Command Interpreter: Bash allows you to execute commands. You can run programs, manipulate files, and perform various tasks using just text commands.
+
+2. Scripting: You can write scripts (a series of commands saved in a file) to automate repetitive tasks. For example, if you frequently backup files, you can write a Bash script to do it with one command.
+
+3.Control Structures: Bash supports control structures like loops (for, while) and conditionals (if, else), allowing you to make your scripts dynamic and responsive to different situations.
+
+4.Job Control: You can manage multiple processes in the background or foreground, which helps you run several commands at once.
+
+5.Input/Output Redirection: Bash allows you to redirect input and output. For example, you can take the output of one command and use it as the input for another command.
+
+Basic Bash Commands:
+====================
+
+Here are some common commands you'll use in Bash:
+
+ls: Lists files and directories in the current directory.
+
+cd: Changes the current directory.
+
+pwd: Prints the current working directory.
+
+mkdir: Creates a new directory. => mkdir new_directory
+
+touch: Creates a new file or updates the timestamp of an existing file.
+
+rm: Deletes files or directories (be careful with this one!).
+
+echo: Displays text or variables to the terminal.
+
+
+Creating a Bash Script:
+=======================
+
+1. Create a new file: Use touch to create a new file (e.g., script.sh).
+
+2. Edit the file: Use a text editor (like nano or vim) to open your script.
+
+3. Add the shebang: At the top of your script, add:
+
+4. Write your commands: Add any Bash commands you want to execute.
+
+5. Save and exit: If you're using nano, press CTRL + X, then Y, and Enter to save.
+
+6. Make the script executable: Change the permissions of your script to make it executable. ==> chmod +x script.sh
+
+7. Run your script:	===> ./script.sh  (mehema run krnna puluwan shebang eka damoth withri nattnm bash scriptfilename.sh kiyl ghnna one execute wenna)
+
+Why Learn Bash?
+
+Automation: You can automate tasks to save time and reduce errors.
+Powerful: With Bash, you can control nearly every aspect of your system.
+Versatility: Bash scripts can be used for system administration, software deployment, data processing, and more.
+
+
+
+Linux Command vs Bash Command
+------------------------------
+
+1. Linux Commands
+=================
+
+Definition: Linux commands refer to the commands you can run in a Linux operating system. These commands can be executed in various shells, including Bash, Zsh, Fish, and others.
+
+Examples: Commands like ls, cp, mv, rm, and cat are all Linux commands that can be executed in any shell.
+Usage: You can run these commands in the terminal (command line interface) of a Linux system.
+
+2. Bash Commands
+=================
+
+Definition: Bash commands specifically refer to commands executed in the Bash shell. Bash is one of the most common shells used in Linux.
+
+Examples: All Linux commands can be Bash commands when executed in a Bash environment. Additionally, Bash commands can include shell-specific commands and features, such as loops and conditionals (like for, while, and if).
+
+Usage: Bash commands can be run in a Bash terminal or included in Bash scripts.
+
+Similarities
+~~~~~~~~~~~~
+
+Functionality: Both Linux and Bash commands perform various tasks on the Linux system, such as file manipulation, system monitoring, and process management.
+
+Command Structure: The syntax for executing commands is similar in both contexts. For example, ls works the same way in Bash as it does in other shells.
+
+Piping and Redirection: Both support piping (using | to send the output of one command as input to another) and redirection (using > to write output to a file).
+
+
+So what is a shell means?
+--------------------------
+
+A shell is a command-line interface (CLI) that allows users to interact with the operating system by typing commands. It acts as an intermediary between the user and the operating system, enabling you to execute commands, run programs, and perform various tasks. Here’s a closer look at what a shell is and its types:
+
+Key Functions of a Shell:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Command Execution: You can enter commands to perform tasks, such as managing files, running scripts, and controlling processes.
+
+2. Scripting: Many shells allow you to write scripts, which are files containing a series of commands that the shell can execute sequentially. This helps automate repetitive tasks.
+
+3. User Interaction: The shell provides a prompt where you can enter commands and receive output, making it easy to communicate with the operating system.
+
+4. Environment Management: The shell manages the environment variables and configuration settings, affecting how commands and applications behave.
+
+Types of Shells:
+~~~~~~~~~~~~~~~~
+
+There are several types of shells, each with its own features and syntax. Here are some of the most common ones:
+
+1. Bash (Bourne Again SHell):
+
+	The default shell for many Linux distributions and macOS.
+	Supports scripting, command history, and job control.
+
+2. Zsh (Z Shell):
+
+	Similar to Bash but includes additional features like improved tab completion and spelling correction.
+	Highly customizable with plugins and themes.
+
+3. Fish (Friendly Interactive Shell):
+
+	Focuses on user-friendliness with a more intuitive syntax and features like autosuggestions and syntax highlighting.
+	Designed to be interactive and easy to use.
+
+4. Ksh (Korn Shell):
+
+	Combines features of the Bourne shell (sh) and C shell (csh).
+	Supports scripting and provides advanced programming features.
+
+5. Tcsh:
+
+	An enhanced version of the C shell (csh) with additional features like command-line editing and history.
+
+
+So what is Shebang means?
+-------------------------
+
+A shebang (or hashbang) is a special character sequence at the beginning of a script file that tells the operating system which interpreter to use to execute the script. It consists of the characters #! followed by the path to the interpreter.
+
+Structure of a Shebang
+The general format is:
+
+#!/path/to/interpreter
+
+Breakdown of the Components:
+
+1. #: This symbol begins a comment in many programming languages, but when paired with !, it serves a special purpose.
+
+2. !: This character, when combined with #, indicates that what follows is the path to an interpreter.
+
+3. /path/to/interpreter: This is the full path to the interpreter that should run the script. Common interpreters include:
+
+	/bin/bash: Bash shell
+	/usr/bin/python3: Python 3 interpreter
+	/bin/sh: Bourne shell (another shell)
+	/usr/bin/env python3: Uses the env command to find Python 3 in your PATH, making the script more portable.
+
+
+Example
+Here’s how a shebang might look for a Bash script:
+
+#!/bin/bash
+
+
+In this example:
+
+#! indicates that this is a shebang.
+/bin/bash specifies that the script should be executed using the Bash shell located at /bin/bash.
+
+When you execute ./hello.sh, the operating system reads the shebang line to determine that it should use the Bash interpreter to execute the script. If the shebang were not present, you would need to manually specify the interpreter each time you ran the script, like this:
+
+	" bash hello.sh "

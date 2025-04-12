@@ -1,0 +1,7 @@
+rename a file basic syntax is that:
+
+	" mv odlFile_name.extensionOfIt newFile_name.extensionOfIT"
+
+example :
+
+	" mv hello.txt hello.sh"

@@ -1,0 +1,133 @@
+niknma bash command ekk widiyt mewa ghuwe blapu video eke nm
+
+ 1. command
+
+	"MY_FRIST_LIST=(one two three four five)"
+
+mehamkrama array ekk hdenwa
+
+2. command 
+
+	" echo $MY_FRIST_LIST "
+
+mehmkrama niknama palaweni item ek pennanwa 
+
+3. command
+
+	" echo ${MY_FRIST_LIST[@]} " 
+
+4. command 
+
+	" echo ${MY_FRIST_LIST[3]} "
+
+mehma ghuwama 4 weni element ek denwa
+
+katugipt:
+
+# Method 1: Using parentheses
+fruits=("apple" "banana" "cherry")
+
+# Method 2: Assigning values to specific indices
+fruits[0]="apple"
+fruits[1]="banana"
+fruits[2]="cherry"
+
+# Method 3: Declaring an empty array and adding elements later
+declare -a fruits
+fruits=("apple" "banana" "cherry")
+
+
+2. Accessing Array Elements
+
+Array indices start at 0, so you can access each element by its index.
+
+bash
+Copy code
+echo ${fruits[0]}  # Output: apple
+echo ${fruits[1]}  # Output: banana
+echo ${fruits[2]}  # Output: cherry
+
+
+
+To access all elements in an array, use * or @:
+
+echo ${fruits[@]}  # Output: apple banana cherry
+echo ${fruits[*]}  # Output: apple banana cherry
+
+
+3. Adding and Modifying Elements
+
+You can assign values to any index in the array or change existing elements:
+
+fruits[3]="date"         # Adds a new element
+fruits[1]="blueberry"    # Modifies the element at index 1
+
+
+4. Length of an Array
+
+To find the number of elements in an array, use ${#array_name[@]}:
+
+echo ${#fruits[@]}   # Output: 4 (number of elements in the array)
+
+
+To get the length of a specific element:
+
+echo ${#fruits[0]}   # Output: 5 (length of the first element "apple")
+
+
+5. Looping Through an Array
+
+You can loop through an array using a for loop:
+
+for fruit in "${fruits[@]}"; do
+    echo $fruit
+done
+
+
+Or you can loop through array indices:
+
+for index in "${!fruits[@]}"; do
+    echo "Index $index: ${fruits[$index]}"
+done
+
+
+6. Deleting Elements
+
+To remove a specific element from an array, use unset:
+
+unset fruits[1]          # Removes "blueberry" from the array
+echo ${fruits[@]}        # Output: apple cherry date
+
+
+
+To delete the entire array, use unset with the array name:
+
+unset fruits             # Completely removes the array
+
+
+7. Slicing an Array
+
+You can extract a portion of an array by specifying a starting index and the number of elements to extract:
+
+# Syntax: ${array[@]:start:length}
+echo ${fruits[@]:1:2}    # Output: cherry date (starting at index 1, extract 2 elements)
+
+
+8. Associative Arrays (Bash 4.0+)
+
+Bash also supports associative arrays, where each element is stored with a unique key. You must declare associative arrays explicitly with declare -A:
+
+declare -A colors
+colors[apple]="red"
+colors[banana]="yellow"
+colors[cherry]="red"
+
+echo ${colors[apple]}  # Output: red
+
+
+video eke krpu example code ek:
+--------------------------------
+
+command:  
+
+$ for item in ${MY_FRIST_LIST[@]}; do echo -n ${item} | wc -c; done
