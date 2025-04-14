@@ -1,0 +1,173 @@
+🧍 What is a User?
+====================
+
+In Linux, a user is just a person (or a program) who uses the system.
+
+🧑 Think of your computer like a shared apartment:
+=====================================================
+
+Every person (user) has their own room (home directory).
+
+They have their own bed, closet, notes (files).
+
+Some people (like the building manager) can enter every room (that’s root).
+
+
+🧑 Types of Users:
+-------------------
+
+User Type		Description
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Regular User		Like you! Normal privileges. Can use the system and manage their own files.
+Root User		The big boss 🕴️. Can do anything — install software, delete users, etc.
+System Users		Special accounts for programs like MySQL or Apache. They usually don’t log in, just exist to run services.
+
+🧑‍🤝‍🧑 What is a Group?
+-----------------------
+
+A group is a collection of users.
+
+💡 Think of groups like clubs or teams:
+------------------------------------------
+
+All users in a group get certain shared permissions.
+
+For example, the developers group might have access to the code folder.
+
+Or the audio group might let users play sound.
+
+🔐 How Do Users & Groups Affect Permissions?
+==============================================
+
+Linux controls who can read, write, or run files based on:
+
+1. The user (owner)
+
+2. The group (associated group)
+
+3. Others (everyone else)
+
+You can see this when you run:
+
+ls -l
+
+Output might look like:
+
+-rwxr--r-- 1 alice devteam 1234 Apr 10 hello.sh
+
+
+Breakdown:
+
+alice is the user (owner).
+
+devteam is the group.
+
+Permissions:
+
+	rwx → user can read, write, execute.
+
+	r-- → group can only read.
+
+	r-- → others can only read.
+
+
+🛠️ Common Commands
+===================
+
+Command					Description
+-------------------------------------------------------------------------------------
+whoami					Shows your current username.
+groups					Shows which groups you belong to.
+adduser bob				Adds a new user named bob.
+usermod -aG groupname username		Adds a user to a group.
+id					Shows your UID, GID, and all groups you’re in.
+
+🧪 Real-World Example
+======================
+
+Scenario:
+You have a shared folder /var/www/html for web developers.
+
+You want only devs to modify files.
+
+What You Do:
+Create a group: sudo groupadd webdev
+
+Add users to group: sudo usermod -aG webdev alice
+
+Change folder’s group: sudo chown :webdev /var/www/html
+
+Give group write permission: sudo chmod 770 /var/www/html
+
+Now, only users in webdev group can edit that folder. 🔐
+
+
+Q:
+
+how to create a new user , is it like we create a new user settings/system/users/add user.. in ubuntu , or this user means here is more than that ?
+
+A:
+
+Great question! 🎯
+
+Yes — you can create a user either:
+
+✅ 1. Using Ubuntu’s GUI (Graphical Interface)
+------------------------------------------------
+Just like you said:
+
+Settings → Users → Add User
+
+This is perfect for desktop use.
+
+The new user gets their own home folder (/home/username).
+
+You can set whether they're an admin or a standard user.
+
+Super beginner-friendly! 👶
+
+✅ 2. Using Terminal (Command Line) — This is where the real Linux power kicks in 💪
+
+This is what system admins and DevOps folks usually do. It gives you more control.
+
+🧪 Let’s Create a User from Terminal
+-------------------------------------
+
+👉 Step-by-step:
+
+sudo adduser john
+
+This will:
+
+Create a new user named john
+
+Ask for a password
+
+Create a home directory at /home/john
+
+Ask for user info (optional)
+
+Automatically assign a default group
+
+
+🚀 Want to add them to a group too?
+--------------------------------------
+
+sudo usermod -aG sudo john
+
+This adds john to the sudo group (admin powers).
+
+You can replace sudo with any group like docker, www-data, devteam, etc.
+
+🤔 So which "user" are we talking about in DevOps?
+-----------------------------------------------------
+
+We’re definitely referring to the same Linux user accounts.
+
+Not just some visual “profile” — these users control file permissions, access, sudo rights, and more.
+
+They’re used in servers, scripts, and automation tools (like Ansible, Docker, Jenkins, etc).
+
+
+

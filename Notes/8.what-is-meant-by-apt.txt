@@ -1,0 +1,99 @@
+💡 What is sudo?
+==================
+
+sudo means "Super User DO".
+
+It lets you do things as the system admin (the boss).
+
+Ubuntu doesn’t let normal users do powerful system changes. So when you use sudo, you're saying:
+👉 “Hey Linux, let me do something important. I promise I know what I’m doing.” 😅
+
+Example:
+
+sudo apt install vlc
+
+Here, you're saying:
+
+"Run the command to install VLC as an admin (because installing software needs special permission)."
+
+💡 What is apt?
+-----------------
+
+apt stands for Advanced Package Tool.
+
+It’s like the app store command in Ubuntu.
+
+Think of it like this:
+
+apt helps you install, update, and remove software.
+
+It talks to online software warehouses (called repositories) to get what you need.
+
+Common apt commands:
+
+Command					What it does
+------------------------------------------------------------------------------------------
+
+apt install <package>			Installs software
+apt remove <package>			Uninstalls software
+apt update				Updates the list of available software
+apt upgrade				Upgrades installed software to latest version
+
+🔧 Full Example: Installing VLC Media Player
+---------------------------------------------------
+
+sudo apt update          # Updates the list of available software
+sudo apt install vlc     # Installs VLC media player
+
+First, we update so apt knows the latest versions of apps.
+
+Then, we install the software we want.
+
+
+Q:
+
+so this apt pakcage manager is available for all linux distributions like kali linux, hanthana linux, ubuntu etc?
+
+A:
+
+✅ apt is available on some, but not all Linux distributions.
+
+apt is a package manager that comes from the Debian family of Linux distributions. So it's only used by Debian-based systems.
+
+🐧 Distributions that DO use apt:
+-----------------------------------
+
+Ubuntu (and all its flavors like Kubuntu, Xubuntu)
+
+Kali Linux
+
+Linux Mint
+
+Pop!_OS
+
+Debian itself
+
+✅ These use .deb packages and apt to install/update/remove software.
+
+🐧 Distributions that DO NOT use apt:
+-----------------------------------------
+
+They use different package managers, like:
+
+Distro					Package Manager			File Type
+===========================================================================================
+Fedora					dnf or yum			.rpm
+Arch Linux				pacman				.pkg.tar.zst
+Manjaro					pacman				.pkg.tar.zst
+openSUSE				zypper				.rpm
+Hanthana Linux (based on Fedora)	dnf				.rpm
+
+
+💡 So if you're using:
+Ubuntu or Kali Linux → You can use apt ✅
+
+Hanthana Linux (based on Fedora) → You use dnf or yum ❌ apt won’t work natively.
+
+
+
+

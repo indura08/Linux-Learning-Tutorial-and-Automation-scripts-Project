@@ -79,3 +79,43 @@ example commands :
 
 
 in here 7 means that 4+2+1 , so user can do read right execute
+
+Q:
+
+chmod u+x filename   # Adds execute permission for the user so this command set permission to user(owner) lets say i want to add read write and execute to user how to do it chmod u+x+r+w?
+
+A:
+
+✅ To give read (r), write (w), and execute (x) permissions to the user (owner), the correct command is:
+
+chmod u+rwx filename
+
+✅ This adds all three permissions at once for the user:
+
+r → read
+
+w → write
+
+x → execute
+
+🔥 Bonus Tips:
+
+You can also remove permissions like this:
+
+chmod u-rwx filename   # removes all permissions for the user
+
+Or mix add and remove:
+
+chmod u+rw,g-r filename
+
+Adds read/write to user, removes read from group.
+
+💡 "u", "g", "o", and "a" meaning:
+
+Symbol		Stands for
+==============================
+u		user (owner)
+g		group
+o		others
+a		all (u + g + o)
+
