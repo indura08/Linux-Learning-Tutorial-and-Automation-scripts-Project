@@ -1,0 +1,81 @@
+🧐 What does “Run scripts from anywhere” mean?
+----------------------------------------------------
+
+Let’s say you made a script called hello.sh.
+By default, to run it, you have to be in the folder where that script is, like this:
+
+cd ~/scripts
+./hello.sh
+
+But what if you're in another folder like Downloads or Documents and you still want to run hello.sh without typing the full path?
+
+Like this:
+
+hello.sh
+
+That’s what “run scripts from anywhere” means — being able to run your script from any folder without giving its full path.
+
+🧩 How do we make that work?
+-----------------------------
+
+We need to do two things:
+
+✅ 1. Move your script to a directory that’s in your $PATH
+
+Linux has a list of folders where it looks for programs/commands (like ls, cd, etc). This list is stored in an environment variable called PATH.
+
+To see your current PATH folders, run:
+
+echo $PATH
+
+You’ll see something like:
+
+/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/home/yourname/bin
+
+If you place your script in one of these folders (e.g. /usr/local/bin or ~/bin), then Linux will know where to find it.
+
+✅ Example:
+
+1. First, give your script execute permission:
+
+chmod +x hello.sh
+
+
+2. Then move it to a PATH folder:
+
+sudo mv hello.sh /usr/local/bin/
+
+
+Now, from any folder, you can just type:
+
+hello.sh
+
+and it runs
+
+🛠️ Bonus: Add your own folder to PATH
+-----------------------------------------
+
+If you want to keep your scripts in your own folder (like ~/my-scripts), you can add that folder to your PATH.
+
+1. Open your .bashrc file:
+
+nano ~/.bashrc
+
+2. Add this line to the bottom:
+
+export PATH="$HOME/my-scripts:$PATH"
+
+3. Save and exit (Ctrl + O, then Enter, then Ctrl + X)
+
+4. Reload it:
+
+source ~/.bashrc
+
+Now, any script inside ~/my-scripts will run from anywhere too!
+
+
+
+
+
+
+

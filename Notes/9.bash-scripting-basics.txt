@@ -1,0 +1,16 @@
+shebang
+--------
+
+shebang is a most important thing because it will point out what is the interpreter we should use for a particular script. but in bash when we dont specify shebang we cant run that bash script using the command: 
+
+	" ./bashscriptName.sh "
+	
+instead we need to use commands like:
+
+	" sh bashscriptName.sh"
+	
+	or
+	
+	"bash bashScriptName.sh"
+	
+

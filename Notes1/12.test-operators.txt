@@ -114,7 +114,7 @@ if (( num > 5 )); then
 fi
 
 
-Q: In examples of above chat sometimes there is [expression] and sometimes there ((expression)) pleasee explain this t0 me, im confused
+Q: In examples of above chat sometimes there is [expression] and sometimes there ((expression)) please explain this to me, i'm confused
 
 A: Great question! Let's clear up the confusion between [ and (( )) in Bash.
 
