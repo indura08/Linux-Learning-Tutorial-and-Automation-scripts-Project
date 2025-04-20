@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "System Health Report - $(date), $(whoami)"
+echo "------------------------------------------"
+
+echo "Uptime:"
+uptime 
+echo
+
+echo "CPU load"
+
+
+: '
+
+➤ -n 1: Number of iterations
+This tells top how many times it should run before quitting.
+
+-n 1 means: "Run just once, then exit."-b: Batch mode
+Normally, top runs interactively (keeps updating the screen).
+
+With -b (batch mode), it runs just once and prints the output to the terminal.
+
+Useful for scripts, because you don’t want it to keep updating.
+
+
+➤ -n 1: Number of iterations
+This tells top how many times it should run before quitting.
+
+-n 1 means: "Run just once, then exit."
+
+'
+
+
